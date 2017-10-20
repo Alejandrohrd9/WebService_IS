@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEntradaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEntradaLabel_id}"/>
+                    <h:outputText value="#{entradaController.selected.id}" title="#{bundle.ViewEntradaTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewEntradaLabel_pelicula}"/>
+                    <h:outputText value="#{entradaController.selected.pelicula}" title="#{bundle.ViewEntradaTitle_pelicula}"/>
+                    <h:outputText value="#{bundle.ViewEntradaLabel_sala}"/>
+                    <h:outputText value="#{entradaController.selected.sala}" title="#{bundle.ViewEntradaTitle_sala}"/>
+                    <h:outputText value="#{bundle.ViewEntradaLabel_fila}"/>
+                    <h:outputText value="#{entradaController.selected.fila}" title="#{bundle.ViewEntradaTitle_fila}"/>
+                    <h:outputText value="#{bundle.ViewEntradaLabel_butaca}"/>
+                    <h:outputText value="#{entradaController.selected.butaca}" title="#{bundle.ViewEntradaTitle_butaca}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{entradaController.destroyAndView}" value="#{bundle.ViewEntradaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEntradaEditLink}"/>
+                <br />
+                <h:commandLink action="#{entradaController.prepareCreate}" value="#{bundle.ViewEntradaCreateLink}" />
+                <br />
+                <h:commandLink action="#{entradaController.prepareList}" value="#{bundle.ViewEntradaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEntradaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
